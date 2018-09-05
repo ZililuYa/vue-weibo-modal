@@ -1,9 +1,23 @@
-import modal from './weibo-modal.vue'
+import Modal from './WeiboModal.vue'
+import Vue from 'vue'
 
-const app = {
-  install: function (Vue) {
-    Vue.component(modal.name, modal)
+export default function (_props) {
+  if (typeof _props !== 'object') {
+    _props = {
+      html: _props.toString()
+    }
   }
-}
+  // console.log(Vue)
+  _props.value = true
+  console.log(_props)
+  const Instance = new Vue({
+    render (h) {
+      return h(Modal, {
+        props: _props
+      })
+    }
+  })
 
-export default app
+  const component = Instance.$mount()
+  document.body.appendChild(component.$el)
+}

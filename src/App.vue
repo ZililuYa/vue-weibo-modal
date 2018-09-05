@@ -2,9 +2,9 @@
   <div id="app">
     <img src="./assets/logo.png">
     <div class="">
-      <button @click="modal=!modal">open webbo modal</button>
-      <hr>
-      {{modal}}
+      <button @click="modal=!modal">default</button>
+      <button @click="open">$Modal</button>
+      <button @click="openOpt">$Modal opt</button>
     </div>
     <weibo-model v-model="modal"></weibo-model>
   </div>
@@ -19,7 +19,20 @@
         modal: false
       }
     },
-    components: {}
+    mounted () {
+    },
+    methods: {
+      open () {
+        this.$Modal('直接输入传参字符串的话就会直接显示')
+      },
+      openOpt () {
+        this.$Modal({
+          title: '自定义标题',
+          okText: '自定义确认按钮',
+          html: '<hr>自定义内容 <p style="color: red">ppppppppppppp</p><hr>'
+        })
+      }
+    }
   }
 </script>
 

@@ -1,0 +1,154 @@
+@base: #fa7f40;
+@background: rgba(0, 0, 0, 0.3);
+@border: #f2f2f5;
+@font: #696e78;
+@font-face {
+  font-family: 'wbficonregular';
+  src: url("./wbficon/wbficon.eot") format('embedded-opentype'),
+  url("./wbficon/wbficon.svg") format('svg'),
+  url("./wbficon/wbficon.woff") format('woff'),
+  url("./wbficon/wbficon.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.weibo-model {
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+    user-select: none;
+  }
+  a {
+    text-decoration: none;
+  }
+  .weibo-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20180904;
+    background-color: @background;
+    transition: all 0.3s;
+    opacity: 0;
+  }
+  .weibo-main {
+    background-color: #fff;
+    width: 510px;
+    max-width: 90%;
+    min-height: 10px;
+    border-radius: 3px;
+    border-top: 2px solid @base;
+    left: 50%;
+    top: 25%;
+    margin-left: -255px;
+    position: fixed;
+    z-index: 20180905;
+    transition: all 0.3s;
+    /*transform: scale(0.1, 0.1);*/
+    opacity: 0;
+    .weibo-title {
+      width: 100%;
+      border-bottom: 1px solid @border;
+      line-height: 38px;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 0 0 0 16px;
+      vertical-align: middle;
+      text-align: left;
+      cursor: move;
+    }
+    .weibo-close {
+      font-family: "wbficonregular" !important;
+      font-size: 18px;
+      position: absolute;
+      z-index: 2;
+      right: 12px;
+      top: 0;
+      color: @font;
+      &:hover {
+        color: @base;
+      }
+    }
+    .weibo-content {
+      min-height: 60px;
+      width: 100%;
+      padding: 13px;
+      text-align: left;
+    }
+    .weibo-btn {
+      padding: 10px 13px;
+      text-align: right;
+      border-top: 1px solid @border;
+      button {
+        padding: 0 10px;
+        margin-left: 13px;
+        white-space: nowrap;
+        display: inline-block;
+        border-radius: 2px;
+        height: 26px;
+        line-height: 27px;
+        text-decoration: none;
+        font-size: 12px;
+        min-width: 60px;
+        text-align: center;
+        outline: none;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+        background: @base;
+        border: 1px solid #f06923;
+        color: #fff;
+        cursor: pointer;
+        &:hover {
+          background-color: #f7671d;
+        }
+      }
+    }
+  }
+  &.open {
+    .weibo-background {
+      opacity: 1;
+    }
+    .weibo-main {
+      /*transform: scale(1, 1)*/
+      opacity: 1;
+      .bounceIn;
+    }
+  }
+}
+
+@keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  70% {
+    opacity: 0.5;
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.bounceIn {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+}
