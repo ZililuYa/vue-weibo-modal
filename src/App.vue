@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <h3><a href="https://github.com/nesfe/vue-weibo-modal" target="_blank">vue-weibo-modal</a></h3>
     <div>
       <div>
         <p>HTML生成：</p>
