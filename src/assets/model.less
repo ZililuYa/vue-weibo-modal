@@ -34,17 +34,17 @@
   }
   .weibo-main {
     background-color: #fff;
-    width: 510px;
+    //width: 510px;
     max-width: 90%;
     min-height: 10px;
     border-radius: 3px;
     border-top: 2px solid @base;
-    left: 50%;
-    top: 25%;
-    margin-left: -255px;
+    //left: 50%;
+    //top: 25%;
+    //margin-left: -255px;
     position: fixed;
     z-index: 20180905;
-    transition: all 0.3s;
+    transition: opacity 0.3s;
     /*transform: scale(0.1, 0.1);*/
     opacity: 0;
     .weibo-title {
@@ -79,10 +79,10 @@
     .weibo-btn {
       padding: 10px 13px;
       text-align: right;
-      border-top: 1px solid @border;
+      //border-top: 1px solid @border;
       button {
         padding: 0 10px;
-        margin-left: 13px;
+        margin-left: 8px;
         white-space: nowrap;
         display: inline-block;
         border-radius: 2px;
@@ -93,18 +93,29 @@
         min-width: 60px;
         text-align: center;
         outline: none;
+        cursor: pointer;
+      }
+      .ok {
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
         background: @base;
         border: 1px solid #f06923;
         color: #fff;
-        cursor: pointer;
         &:hover {
           background-color: #f7671d;
         }
       }
+      .cancel {
+        box-shadow: 0 1px 2px #eee;
+        background: #fff;
+        border: 1px solid #eee;
+        color: @font;
+        &:hover {
+          background-color: #f9f9f9;
+        }
+      }
     }
   }
-  &.open {
+  &.display {
     .weibo-background {
       opacity: 1;
     }

@@ -5,6 +5,8 @@ const app = {
   install: function (Vue, opts = {}) {
     Vue.prototype.$Modal = $Modal
     Vue.component(Modal.name, Modal)
+    // window.VNode.prototype.render = () => {
+    // }
   }
 }
 

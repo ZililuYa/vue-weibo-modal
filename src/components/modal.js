@@ -1,23 +1,24 @@
 import Modal from './WeiboModal.vue'
 import Vue from 'vue'
 
-export default function (_props) {
-  if (typeof _props !== 'object') {
-    _props = {
-      html: _props.toString()
+export default function (pro) {
+  if (typeof pro !== 'object') {
+    pro = {
+      html: pro.toString()
     }
   }
-  // console.log(Vue)
-  _props.value = true
-  console.log(_props)
+  pro.value = true
   const Instance = new Vue({
     render (h) {
       return h(Modal, {
-        props: _props
+        props: pro
       })
     }
   })
 
   const component = Instance.$mount()
   document.body.appendChild(component.$el)
+  this.info = function () {
+    console.log('info')
+  }
 }
